@@ -1,0 +1,57 @@
+{
+  "name": "pb-web-client",
+  "version": "0.0.1",
+  "description": "Web client for the PerlBlue application.",
+  "main": "app/js/load.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PerlBlue/pb-web-client"
+  },
+  "author": [
+    "Iain C Docherty <iain.docherty@perlblue.com",
+  ],
+  "bugs": {
+    "url": "https://github.com/PerlBlue/pb-web-client/issues"
+  },
+  "scripts": {
+    "test": "gulp lint"
+  },
+  "homepage": "https://github.com/PerlBlue/pb-web-client/issues",
+  "dependencies": {
+    "classnames": "2.2.5",
+    "fingerprintjs2": "1.4.0",
+    "lodash": "4.13.1",
+    "moment": "2.13.0",
+    "react": "0.14.7",
+    "react-addons-css-transition-group": "0.14.7",
+    "react-addons-pure-render-mixin": "0.14.7",
+    "react-dom": "0.14.7",
+    "react-draggable": "1.2.0",
+    "react-tabs": "0.5.3",
+    "react-tooltip": "1.0.4",
+    "reflux": "0.4.1",
+    "validator": "5.4.0"
+  },
+  "devDependencies": {
+    "babel": "6.5.2",
+    "babel-preset-react": "6.5.0",
+    "babelify": "7.3.0",
+    "browserify": "13.0.1",
+    "del": "2.2.0",
+    "eslint": "2.12.0",
+    "eslint-config-standard": "5.3.1",
+    "eslint-config-standard-jsx": "1.2.1",
+    "eslint-config-standard-react": "2.4.0",
+    "eslint-plugin-promise": "1.3.2",
+    "eslint-plugin-react": "5.1.1",
+    "eslint-plugin-standard": "1.3.2",
+    "express": "4.13.4",
+    "gulp": "3.9.1",
+    "gulp-concat-css": "2.3.0",
+    "gulp-util": "3.0.7",
+    "run-sequence": "1.2.1",
+    "vinyl-source-stream": "1.1.0",
+    "watchify": "3.7.0"
+  }
+}
