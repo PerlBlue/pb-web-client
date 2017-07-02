@@ -11,11 +11,6 @@ var OptionsWindowActions    = require('js/actions/windows/options');
 var WindowActions           = require('js/actions/window');
 var EmpireRPCActions        = require('js/actions/rpc/empire');
 
-var AboutWindow             = require('js/components/window/about');
-var InviteWindow            = require('js/components/window/invite');
-
-var ServerClock             = require('js/components/window/serverClock');
-
 var EmpireRPCStore          = require('js/stores/rpc/empire');
 var LeftSidebarStore        = require('js/stores/menu/leftSidebar');
 
@@ -25,20 +20,6 @@ var SelfDestruct = React.createClass({
     mixins : [
         Reflux.connect(EmpireRPCStore, 'empireRPCStore')
     ],
-
-    handleDestructClick : function() {
-        LeftSidebarActions.hide();
-
-        if (this.state.empireRPCStore.self_destruct_active === 1) {
-            EmpireRPCActions.requestEmpireRPCDisableSelfDestruct();
-            return;
-        }
-
-        vex.confirm(
-            'Are you ABSOLUTELY sure you want to enable self destuct?  If enabled, your empire will be deleted after 24 hours.',
-            EmpireRPCActions.requestEmpireRPCEnableSelfDestruct
-        );
-    },
 
     render : function() {
         var destructMs          = this.state.empireRPCStore.self_destruct_ms;
@@ -126,80 +107,13 @@ var LeftSidebar = React.createClass({
                     Actions
                 </div>
 
-                <a className="item" onClick={function() {
-                    LeftSidebarActions.hide();
-                    WindowActions.windowAdd(InviteWindow, 'invite');
-                }}>
-                    <i className="add user icon"></i>
-                    Invite a Friend
-                </a>
-                <a className="item" onClick={function() {
-                    LeftSidebarActions.hide();
-                    YAHOO.lacuna.MapPlanet.Refresh();
-                }}>
-                    <i className="refresh icon"></i>
-                    Refresh
-                </a>
-
                 <div className="ui horizontal inverted divider">
                     Links
                 </div>
 
-                <a className="item" target="_blank" href="/starmap/"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="map icon"></i>
-                    Alliance Map
-                </a>
-                <a className="item" target="_blank" href="/changes.txt"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="code icon"></i>
-                    Changes Log
-                </a>
-                <a className="item" target="_blank"
-                    href="http://community.lacunaexpanse.com/forums"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="comments layout icon"></i>
-                    Forums
-                </a>
-                <a className="item" target="_blank" href="http://www.lacunaexpanse.com/help/"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="student icon"></i>
-                    Help
-                </a>
-                <a className="item" target="_blank" href="http://www.lacunaexpanse.com/terms/"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="info circle icon"></i>
-                    Terms of Service
-                </a>
-                <a className="item" target="_blank" href="http://lacunaexpanse.com/tutorial/"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="marker icon"></i>
-                    Tutorial
-                </a>
-                <a className="item" target="_blank" href="http://community.lacunaexpanse.com/wiki"
-                    onClick={LeftSidebarActions.hide}
-                >
-                    <i className="share alternate icon"></i>
-                    Wiki
-                </a>
-
                 <div className="ui horizontal inverted divider">
                     Windows
                 </div>
-
-                <a className="item" onClick={function() {
-                    LeftSidebarActions.hide();
-                    WindowActions.windowAdd(AboutWindow, 'about');
-                }}>
-                    <i className="rocket icon"></i>
-                    About
-                </a>
 
                 <a className="item" onClick={function() {
                     LeftSidebarActions.hide();
@@ -209,19 +123,7 @@ var LeftSidebar = React.createClass({
                     <i className="options icon"></i>
                     Options
                 </a>
-                <a className="item" onClick={function() {
-                    LeftSidebarActions.hide();
-                    WindowActions.windowAdd(ServerClock, 'serverclock');
-                }}>
-                    <i className="wait icon"></i>
-                    Server Clock
-                </a>
 
-                <div className="ui horizontal inverted divider">
-                    Self Destruct
-                </div>
-
-                <SelfDestruct />
             </div>
         );
     }

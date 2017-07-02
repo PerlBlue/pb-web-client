@@ -6,8 +6,6 @@ var EmpireRPCActions = require('js/actions/rpc/empire');
 
 var WindowActions    = require('js/actions/window');
 
-var InviteWindow     = require('js/components/window/invite');
-
 var constants        = require('js/constants');
 
 var GetEssentiaTab = React.createClass({
@@ -29,9 +27,6 @@ var GetEssentiaTab = React.createClass({
         node.value = '';
     },
 
-    invite : function() {
-        WindowActions.windowAdd(InviteWindow, 'invite');
-    },
 
     render : function() {
         return (
@@ -56,10 +51,6 @@ var GetEssentiaTab = React.createClass({
                     That's up to <u><strong>130 Essentia</strong></u> per friend!
                 </p>
 
-                <div className="ui large green labeled icon button" onClick={this.invite}>
-                    <i className="add user icon"></i>
-                    Invite a Friend
-                </div>
             </div>
         );
     }
