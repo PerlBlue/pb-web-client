@@ -54,6 +54,7 @@ var WindowsStore = Reflux.createStore({
         // By default, we create a new window.
         var index = state.windows.length;
 
+console.log("add window "+newWindow+" type "+type);
         // However, if there is an existing window type, we replace it because we only want
         // one of each type of window on screen at a given time.
         var existingWindow = findWindowByType(state.windows, type);

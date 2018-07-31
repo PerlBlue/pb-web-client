@@ -3,15 +3,8 @@
 var React         = require('react');
 var ReactTooltip  = require('react-tooltip');
 
-var LeftSidebar   = require('js/components/menu/leftSidebar');
-var RightSidebar  = require('js/components/menu/rightSidebar');
-var Map           = require('js/components/menu/map');
-var Menu          = require('js/components/menu');
 var WindowManager = require('js/components/windowManager');
 
-var MailWindow    = require('js/components/window/mail');
-var OptionsWindow = require('js/components/window/options');
-var StatsWindow   = require('js/components/window/stats');
 
 // This React component will be the main container of everything that appears on the screen.
 
@@ -29,9 +22,6 @@ var GameWindow = React.createClass({
                 }}
             >
 
-                <LeftSidebar />
-                <RightSidebar />
-
                 {/* One container to rule them all... */}
                 <div className="pusher">
 
@@ -45,16 +35,8 @@ var GameWindow = React.createClass({
                         type="dark"
                     />
 
-                    <Menu />
-
-                    <Map />
-                    <div id="content"></div> {/* This div is used by map. */}
-
                     <WindowManager />
 
-                    <MailWindow />
-                    <OptionsWindow />
-                    <StatsWindow />
                 </div>
             </div>
         );

@@ -8,6 +8,5 @@ docker run -it --rm \
     -v ${PWD}/app/vendor-css:/src/app/vendor-css        \
     -v ${PWD}/app/vendor-js:/src/app/vendor-js          \
     --name=pb-web-client                                \
-    --network pbserver_default                          \
     -e DEBUG=express:*                                  \
     perlblue/pb-web /bin/bash

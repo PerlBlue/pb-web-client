@@ -56,15 +56,12 @@
 
         // RPC and core stuff
         require('js/game');
-        require('js/dao');
-
+console.log("loader");
         // Empire management and star map
 
         // Buildings
 
         // Menu stuff
-
-        require('js/components/menu');
 
         // Start everything!
         YAHOO.widget.Logger.enableBrowserConsole();

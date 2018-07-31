@@ -1,23 +1,26 @@
 'use strict';
 
 var React                   = require('react');
+var Reflux                  = require('reflux');
 
 var WindowActions           = require('js/actions/window');
+var UserWSStore             = require('js/stores/ws/user');
 
 var Tabber                  = require('js/components/tabber');
 
 var Tabs                    = Tabber.Tabs;
 var Tab                     = Tabber.Tab;
 
-var StarPanel = React.createClass({
+var UserPanel = React.createClass({
     statics : {
         options : {
-            title  : 'Star Details',
+            title  : 'User Details',
             width  : 700,
             height : 420
         }
     },
     mixins : [
+        Reflux.connect(UserWSStore, 'user'),
     ],
     componentWillMount : function() {
     },
@@ -29,18 +32,13 @@ var StarPanel = React.createClass({
     render : function() {
         var tabs = [];
         tabs.push(
-            <Tab title="Star Details" key="Star Details" >
-                <p>Not Yet Implemented!</p>
+            <Tab title="User Details" key="User Details" >
+                <p>{this.state.clientCode}</p>
             </Tab>
         );
 
         tabs.push(
-            <Tab title="My Fleets" key="My Fleets" >
-                <p>Not Yet Implemented</p>
-            </Tab>
-        );
-        tabs.push(
-            <Tab title="Foreign Fleets" key="Foreign Fleets" >
+            <Tab title="About" key="About" >
                 <p>Not Yet Implemented</p>
             </Tab>
         );
@@ -56,4 +54,4 @@ var StarPanel = React.createClass({
     }
 });
 
-module.exports = StarPanel;
+module.exports = UserPanel;
