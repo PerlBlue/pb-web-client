@@ -3,8 +3,6 @@
 var moment    = require('moment');
 var _         = require('lodash');
 
-var constants = require('js/constants');
-
 var xPad = function(x, pad, r) {
     if (typeof r === 'undefined') {
         r = 10;
@@ -100,22 +98,6 @@ module.exports.formatTime = function(totalSeconds) {
 
 module.exports.formatMillisecondTime = function(ms) {
     return this.formatTime(ms / 1000);
-};
-
-module.exports.serverDateToMoment = function(str) {
-    // There are currently two date formats beig used by the server.
-    // This is to handle that.
-
-    var usingOldFormat = moment(str, constants.OLD_SERVER_DATE_FORMAT);
-    var usingNewFormat = moment(str, constants.NEW_SERVER_DATE_FORMAT);
-
-    if (usingNewFormat.isValid()) {
-        return usingNewFormat;
-    } else if (usingOldFormat.isVaid()) {
-        return usingOldFormat;
-    } else {
-        console.error('Cannot parse server date: ' + str);
-    }
 };
 
 module.exports.formatMomentLong = function(theMoment) {

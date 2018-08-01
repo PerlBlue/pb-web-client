@@ -10,8 +10,6 @@ var ReactTooltip    = require('react-tooltip');
 var GameWindow      = require('js/components/gameWindow');
 
 
-var constants       = require('js/constants');
-
 var LoginWindow     = require('js/components/window/login');
 var UserPanel       = require('js/components/window/userPanel');
 var WindowActions   = require('js/actions/window');
