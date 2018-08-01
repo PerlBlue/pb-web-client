@@ -56,7 +56,8 @@
 
         // RPC and core stuff
         require('js/game');
-console.log("loader");
+        require('js/dao');
+
         // Empire management and star map
 
         // Buildings
