@@ -31,8 +31,26 @@ var UserWSStore = Reflux.createStore({
         var update = clone(this.state);
 
         console.log("client code: "+result.clientCode);
-
         update.clientCode = result.clientCode;
+
+        this.emit(update);
+    },
+
+    onSuccessUserWSLoginWithPassword : function(result) {
+        var update = clone(this.state);
+
+        update.firstname = result.firstname;
+        update.lastname  = result.lastname;
+
+        this.emit(update);
+    },
+
+
+    onSuccessUserWSLogout : function(result) {
+        var update = clone(this.state);
+
+        update.firstname = '';
+        update.lastname = '';
 
         this.emit(update);
     },

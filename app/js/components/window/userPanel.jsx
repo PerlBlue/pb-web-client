@@ -33,7 +33,9 @@ var UserPanel = React.createClass({
         var tabs = [];
         tabs.push(
             <Tab title="User Details" key="User Details" >
-                <p>{this.state.clientCode}</p>
+                <p>{this.state.user.clientCode}</p>
+                <p>{this.state.user.firstname}</p>
+                <p>{this.state.user.lastname}</p>
             </Tab>
         );
 

@@ -19,6 +19,13 @@ UserWSActions.requestUserWSRegister.listen(function(content) {
     });
 });
 
+UserWSActions.requestUserWSLogout.listen(function(content) {
+    ws.call({
+        route   : '/user/logout',
+        content : content
+    });
+});
+
 
 // I'm not sure these belong here. but for now
 //
@@ -29,6 +36,10 @@ UserWSActions.successUserWSClientCode.listen(function(result) {
 
 UserWSActions.successUserWSLoginWithPassword.listen(function(result) {
     vex.alert('Successful Web Socket login - ');
+});
+
+UserWSActions.successUserWSLogout.listen(function(result) {
+    vex.alert('Successful Web Socket logout - ');
 });
 
 UserWSActions.failureUserWSLoginWithPassword.listen(function(result) {

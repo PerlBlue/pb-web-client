@@ -24,6 +24,11 @@ var LoginWindow = React.createClass({
         });
     },
 
+    clickLogout : function() {
+        UserWSActions.requestUserWSLogout({
+        });
+    },
+
     closeWindow : function() {
         WindowActions.windowCloseByType('login');
     },
@@ -44,6 +49,12 @@ var LoginWindow = React.createClass({
                     onClick={this.clickLogin}
                 >
                     Login
+                </div>
+                <div
+                    className="ui red large labeled icon button"
+                    onClick={this.clickLogout}
+                >
+                    Logout
                 </div>
             </div>
         );
